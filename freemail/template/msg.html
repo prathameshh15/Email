@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\style.css' %}">
+    <link rel="stylesheet" href="{% static 'css\bootstrap.min.css' %}">
+
+    <title>Sendmail</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 mt-5 mx-auto shadow p-5">
+                <form action="" method="post" align="center">
+                {% csrf_token %}
+                    <div class="mb-5"><h3>Free Mails</h3></div>
+                    <div class="mb-3">                        
+                        <input type="email" class="form-control" name="uemail" id="email" placeholder="Enter Receiver Email ID" required>
+                    </div>
+                    <div class="mb-3">                        
+                        <textarea name="umsg" id="msg" cols="42" rows="5" placeholder="Enter Message here..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <a href="/msg"><input type="submit" class="btn btn-outline-primary" value="Send Mail" onclick="openPopup()"></a>
+                    </div>
+                    <div class="popup" id="popup">
+                        <img src="{% static 'images\tick.png' %}" alt="" width="50px" height="50px">
+                        <h3>Thank You!</h3>
+                        <p>Your Message Sent Successfully</p>
+                        <button type="button" onclick="closePopup">OK</button>
+                    </div>                                       
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'js\bootstrap.min.js' %}"></script>
+<script src="{% static 'js\popper.min.js' %}"></script>
+<script src="{% static 'js\main.js' %}"></script>
+</body>
+</html>
